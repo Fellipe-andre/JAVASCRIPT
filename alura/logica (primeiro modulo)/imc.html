@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULAR IMC </title>
+    <link rel="shortcut icon" href="ginastica.png" type="image/x-icon">
+</head>
+<body>
+    <style>
+        body{
+            font-family: 'Arial Narrow Bold', sans-serif;
+            background-color: aqua;
+            
+            }
+        h1{
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 15px;
+        }    
+    </style>
+    <h1>Teste aqui seu IMC</h1>
+    <script>
+        function pulaLinha(){
+            
+            document.write("<br><br>")
+            
+        }
+        function mostra(frase){
+            document.write(frase)
+            pulaLinha(); 
+        }
+        function calculaImc(peso, altura){
+            return peso / (altura * altura);
+            
+        }
+
+        var peso1 = Number(prompt('Qual o peso da primeira pessoa?'));
+        var altura1 = Number(prompt('Qual o altura da primeira  pessoa?'));
+
+        var imcPrimeira = calculaImc(peso1, altura1);
+        
+        
+       
+
+        if (imcPrimeira < 18.5){
+            mostra(`Seu IMC é ${imcPrimeira} e está abaixo do recomendado `);
+        }
+        
+        if ( imcPrimeira > 35){
+            mostra(`Seu IMC é ${imcPrimeira} e está acima do recomendado `);
+        }
+        
+        if (imcPrimeira > 18.5){
+            if(imcPrimeira < 35)
+            mostra(`Seu IMC é ${imcPrimeira} e está perfeiro `);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function pulaLinha(){
+            
+            document.write("<br><br>")
+            
+        }
+        function mostra(frase){
+            document.write(frase)
+            pulaLinha(); 
+        }
+
+        var totalFamilia = Number(prompt("Quantas pessoas da familia voce quer adicionar?"));
+        var total = 0;
+        for(contador = 1; contador <= totalFamilia; contador++){
+            var idade = Number(prompt("Qual Idade do Familiar"));
+            total += idade ;      
+        }
+        media = total/totalFamilia
+        mostra(`A media dos ${totalFamilia} membros da família é ${media}`);
+        
+    
+    </script>
+</body>
+</html>

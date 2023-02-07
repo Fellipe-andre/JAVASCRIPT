@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="ginastica.pngn" type="image/x-icon">
+    <title>Jogo de Adivinhação</title>
+
+</head>
+<body>
+    <script>
+        function pulaLinha(){
+            
+            document.write("<br><br>")
+            
+        }
+        function mostra(frase){
+            document.write(frase)
+            pulaLinha(); 
+        }
+
+        var numeroPensado =  Math.round(Math.random()*10);
+
+        var nome = prompt('Digite seu nome:');
+        var chute = Number(prompt(`Olá ${nome}. Digite um numero entre 0 e 10`));
+        var contador = 1;
+        while(chute!=numeroPensado){        
+            alert(`Que pena, você errou, eu pensei no número ${numeroPensado}`);
+            alert(`Vou pensar em outro número ${nome}. vamos tentar outra vez.`);
+            contador++;
+            numeroPensado =  Math.round(Math.random()*10);
+            chute = Number(prompt(`${nome}.Digite um numero entre 0 e 10`));
+        }
+        if (chute==numeroPensado){
+        mostra(`Você é esperto e acertou, eu pensei mesmo no número ${numeroPensado}`);
+        mostra(`Você Acertou em ${contador} tentativas`);
+        }
+        </script>
+</body>
+</html>
