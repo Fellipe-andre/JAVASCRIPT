@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas width="600" height="400"></canvas>
+    <canvas width="600" height="550"></canvas>
     <script>
         
 
@@ -19,11 +19,21 @@
             pincel.fillStyle = cor;
             pincel.fillRect(x,y,50,50);
         }
-
+        var posiçao = 0
         for (var cont = 0; cont < 600 ; cont+=55) {
-            desenhaQuadrado (cont,0,'blue');            
+            desenhaQuadrado (cont,0,'blue');
+             
+            for(var conta = 0; conta < 450; conta+= 55){
+            desenhaQuadrado (posiçao,conta,'blue');
+            desenhaQuadrado (55,conta,'blue');  
         }
-
+        }   
+        
+            
+                 
+        
+      
+        
        
         
         
