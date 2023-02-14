@@ -30,21 +30,36 @@
         function limpaTela(){
             pincel.clearRect(0,0,600,400);
        }
+        var y = 600
+        var x = 0
         
-        var x = 20
-        function atualizaTela(){
+        
+        function atualizaTelavai(){
             
             limpaTela();
             desenhaCirculo(x,20,10);        
-            x++
-            if(x==400){
-                x = 20;
+            x++;
+            if(x==600){
+                x = 599;
+                
+            }
+          
+        }
+        
+        
+        function atualizaTelavolta(){
+            
+            limpaTela();
+            desenhaCirculo(y,20,10);        
+            y--;
+            if(y==20){
+                y = 21;
             }
             
         }
         
-        setInterval(atualizaTela,10);
-        
+        //setInterval(atualizaTelavai,10);
+        setInterval(atualizaTelavolta,10);
         
         
     </script>
