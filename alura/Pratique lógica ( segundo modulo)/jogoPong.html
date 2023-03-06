@@ -13,23 +13,32 @@
     <script>
         var tela = document.querySelector('canvas');
         var pincel = tela.getContext('2d');
+        var x = tela.width / 2;
+        var y = tela.height / 2;
+        var radius = 5;
 
-        pincel.fillStyle = 'black';
+        pincel.fillStyle = 'green';
         pincel.fillRect(0,0,800,400);
+     
         
-        let xBolinha = 300
-        let yBolinha = 200
-        let diametro = 20
         
-        function desenhaCirculo(xBolinha,yBolinha,diametro){
+        
+        /*function desenhaCirculo(xBolinha,yBolinha,diametro){
             pincel.fillStyle = 'white';
             pincel.beginPath();
             pincel.arc(xBolinha,yBolinha,diametro, 0 , 2  *Math.PI);
             pincel.fill();
 
         }
+        desenhaCirculo();*/
 
-        desenhaCirculo();
+        
+        pincel.fillStyle = "red";
+        pincel.beginPath();
+        pincel.arc(x, y, radius, 0, 2 * Math.PI);
+        pincel.fill();
+
+    
     </script>
 </body>
 </html>

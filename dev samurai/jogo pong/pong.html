@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo PONG</title>
+</head>
+<body>
+    <canvas id="folha" width="610" height="410"></canvas>
+    <script>
+
+        window.onload = function() {
+            setInterval(executar,16);
+        }
+        var posicaoBolaX = posicaoBolaY = 15; 
+        var velocidadeBolaPosicaoX = velocidadeBolaPosicaoY = 1;
+        
+        function executar(){
+        //folha do campo
+        var folhaDesenho = document.getElementById('folha');
+        var areaDesenho = folhaDesenho.getContext('2d');
+        
+        var larguraCampo = 600;
+        var alturaCampo = 400;
+        var larguraLinha = 5;
+        var larguraBola = 5;
+        var alturaRaquete = 80; 
+        var diametroBola = 10;
+        
+
+        
+        // pintura do campo
+
+        areaDesenho.fillStyle = '#286047';// #286047  cor verde
+        areaDesenho.fillRect(0,0,larguraCampo,alturaCampo);
+
+        //borda do campo
+
+        /*areaDesenho.fillStyle = 'black'
+        areaDesenho.fillRect(0,0,5,alturaCampo);
+        areaDesenho.fillRect(600,0,5,alturaCampo);
+        areaDesenho.fillRect(0,0,larguraCampo,5);
+        areaDesenho.fillRect(0,400,larguraCampo + 5,5);
+        */
+        
+        // linha do meio do campo
+        areaDesenho.fillStyle = '#ffffff'; //#ffffff cor branca 
+        areaDesenho.fillRect(larguraCampo/2 - larguraLinha-2 ,5,larguraLinha/2,alturaCampo-5);
+
+        //desenhando as raquetes
+
+        /*raquete1 = areaDesenho.fillRect(10,160,larguraLinha, alturaRaquete);
+        raquete2 = areaDesenho.fillRect(larguraCampo - 10,160,larguraLinha, alturaRaquete);
+        */
+        // desenho da bolinha
+        
+        
+        areaDesenho.fillRect(posicaoBolaX - diametroBola / 2,posicaoBolaY- diametroBola/2 ,diametroBola,diametroBola);
+
+
+        //posicaoBolaX = posicaoBolaX + velocidadeBolaPosicaoX;
+        posicaoBolaY = posicaoBolaY + velocidadeBolaPosicaoY;
+
+        /*if(posicaoBolaY < 0 || velocidadeBolaPosicaoY < 0){
+            velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
+        }*/
+        if(posicaoBolaY > alturaCampo || velocidadeBolaPosicaoY > 0){
+            elocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
+        }
+
+        }        
+    </script>
+</body>
+</html>
