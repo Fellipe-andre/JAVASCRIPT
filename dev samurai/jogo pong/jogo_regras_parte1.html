@@ -13,41 +13,113 @@
         window.onload = function(){
             setInterval(executar, 100/30);
         }
-
-        var posicaoBolaX = posicaoBolaY = 10;
+        
+        var posicaoBolaX = 300;
+        var posicaoBolaY = 250;
+    
         var velocidadeBolaPosicaoX = velocidadeBolaPosicaoY = 1;
-
+        
         function executar(){
+            
+            
             var folhaDesenho = document.getElementById("folha");
             var areaDesenho = folhaDesenho.getContext("2d");
 
-            var larguraCampo = 600;
+            var larguraCampo = 605;
             var alturaCampo = 500;
             var espessuraRede = 5;
+            var alturaRaquete = 90;
+            var espessuraRaquete = 5;
+            var diametroBola = 5;
+            var posicaoRaquete1 = 250;
+            var efeitoRaquete = 0.3;
 
-            var diametroBola = 10;
 
+            //Pontos
+            var pontosJogador2 = pontosJogador2 = 0;
+            
+            
+            
             //desenho campo
             areaDesenho.fillStyle = "#286047";
             areaDesenho.fillRect(0,0,600,500);
 
+             //borda do campo
+
+            areaDesenho.fillStyle = 'black'
+            //linha esquerda
+            areaDesenho.fillRect(0,0,5,alturaCampo);
+            //linha direita
+            areaDesenho.fillRect(larguraCampo-10,0,5,alturaCampo);
+            //linha de cima
+            areaDesenho.fillRect(0,0,larguraCampo,5);
+            //linha de baixo
+            areaDesenho.fillRect(0,alturaCampo-5,larguraCampo,5);
+            
             //desenho linha
             areaDesenho.fillStyle = "#ffffff";
-            areaDesenho.fillRect(larguraCampo/2 - espessuraRede -2 ,2,espessuraRede/2,alturaCampo-5);
+            areaDesenho.fillRect(larguraCampo/2 - espessuraRede ,5,espessuraRede-2,alturaCampo-10);
             
+            function desenhaRaquete(){
+                
+                x = 10;
+                raquete1 = areaDesenho.fillRect(x,posicaoRaquete1-alturaRaquete/2,espessuraRaquete, alturaRaquete);
+            
+                //raquete2 = areaDesenho.fillRect(larguraCampo-20,alturaCampo/2-45,espessuraRede, 90);
+            }
+            desenhaRaquete();
             //desenho bola
-            areaDesenho.fillRect(posicaoBolaX - diametroBola / 2,posicaoBolaY- diametroBola/2 ,diametroBola,diametroBola);
+            function desenhaBolinha(){
+                areaDesenho.fillStyle = "#ffffff";
+                areaDesenho.beginPath();
+                areaDesenho.arc(posicaoBolaX,posicaoBolaY,diametroBola, 0 , 2  *Math.PI);
+                areaDesenho.fill();
+                } 
+            desenhaBolinha();
 
             posicaoBolaX = posicaoBolaX + velocidadeBolaPosicaoX;
-            posicaoBolaY = posicaoBolaY + velocidadeBolaPosicaoY;
+            //posicaoBolaY = posicaoBolaY + velocidadeBolaPosicaoY;
             
-            if(posicaoBolaX < 0 && velocidadeBolaPosicaoY < 0){
-                velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
+            
+            function verificaBorda(){
+                // verifica borda de cima
+
+                if(posicaoBolaY < 0 && velocidadeBolaPosicaoY < 0){
+                    velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
+                }
+
+
+                //verifica borda de baixo
+                if(posicaoBolaY > alturaCampo && velocidadeBolaPosicaoY > 0){
+                    velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
+                }
+                // verifica borda lateral direita          
+                if(posicaoBolaX > larguraCampo && velocidadeBolaPosicaoX > 0){
+                    velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
+                }
+                // verifica borda lateral esquerda
+                if(posicaoBolaX < 0 && velocidadeBolaPosicaoX < 0){
+                    velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
+                }
+            }
+            verificaBorda();
+          
+            //verifica se jogador 2 fez ponto
+            if(posicaoBolaX < 0 ){
+                if(posicaoBolaY > posicaoRaquete1 && posicaoBolaY < posicaoRaquete1 + alturaRaquete){
+                    //rebate bola
+                    velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
+
+                    var diferencaY = posicaoBolaY - (posicaoRaquete1 + alturaRaquete /2);
+                    velocidadeBolaPosicaoY = diferencaY * efeitoRaquete;
+                }
+            }else{
+                //ponto jogador2
+                 pontosJogador2++
             }
 
-            if(posicaoBolaY > alturaCampo && velocidadeBolaPosicaoY > 0){
-                velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
-            }
+            
+            
             console.log('tic-tac')
 
            
