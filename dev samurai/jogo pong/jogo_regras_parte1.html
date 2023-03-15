@@ -14,6 +14,7 @@
             setInterval(executar, 100/30);
         }
         
+        var posicaojogador1 = posicaojogador2 = 40;
         var posicaoBolaX = 300;
         var posicaoBolaY = 250;
     
@@ -28,15 +29,15 @@
             var larguraCampo = 605;
             var alturaCampo = 500;
             var espessuraRede = 5;
-            var alturaRaquete = 90;
+            var alturaRaquete = 100;
             var espessuraRaquete = 5;
-            var diametroBola = 5;
-            var posicaoRaquete1 = 250;
+            var diametroBola = 10;
+                       // var posicaoYRaquete1 = alturaCampo/2;
             var efeitoRaquete = 0.3;
 
 
             //Pontos
-            var pontosJogador2 = pontosJogador2 = 0;
+            var pontuacaojogador1 = pontuacaojogador2 = 0;
             
             
             
@@ -60,14 +61,17 @@
             areaDesenho.fillStyle = "#ffffff";
             areaDesenho.fillRect(larguraCampo/2 - espessuraRede ,5,espessuraRede-2,alturaCampo-10);
             
-            function desenhaRaquete(){
-                
-                x = 10;
-                raquete1 = areaDesenho.fillRect(x,posicaoRaquete1-alturaRaquete/2,espessuraRaquete, alturaRaquete);
+            //raquetes
+
+            areaDesenho.fillRect(0, posicaojogador1, espessuraRaquete, alturaRaquete);
+           
+           
+            areaDesenho.fillRect( larguraCampo - 10, posicaojogador2, espessuraRaquete, alturaRaquete);    
             
-                //raquete2 = areaDesenho.fillRect(larguraCampo-20,alturaCampo/2-45,espessuraRede, 90);
-            }
-            desenhaRaquete();
+            
+                
+            
+            
             //desenho bola
             function desenhaBolinha(){
                 areaDesenho.fillStyle = "#ffffff";
@@ -77,7 +81,7 @@
                 } 
             desenhaBolinha();
 
-            posicaoBolaX = posicaoBolaX + velocidadeBolaPosicaoX;
+            //posicaoBolaX = posicaoBolaX + velocidadeBolaPosicaoX;
             //posicaoBolaY = posicaoBolaY + velocidadeBolaPosicaoY;
             
             
@@ -93,34 +97,50 @@
                 if(posicaoBolaY > alturaCampo && velocidadeBolaPosicaoY > 0){
                     velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
                 }
-                // verifica borda lateral direita          
-                if(posicaoBolaX > larguraCampo && velocidadeBolaPosicaoX > 0){
-                    velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
-                }
-                // verifica borda lateral esquerda
-                if(posicaoBolaX < 0 && velocidadeBolaPosicaoX < 0){
-                    velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
-                }
+             
             }
             verificaBorda();
           
             //verifica se jogador 2 fez ponto
-            if(posicaoBolaX < 0 ){
-                if(posicaoBolaY > posicaoRaquete1 && posicaoBolaY < posicaoRaquete1 + alturaRaquete){
+           
+            if(posicaoBolaX < 0){
+                if(posicaoBolaY > posicaojogador1 && posicaoBolaY < posicaojogador1 + alturaRaquete){
+                    //rebater a bola
+                    velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
+
+                    var diferecaY = posicaoBolaY - (posicaojogador1 + alturaRaquete/ 2);
+                    velocidadeBolaPosicaoY = diferecaY - efeitoRaquete;
+                }else{
+                    //pontos jogador2
+                    pontuacaojogador2++;
+                    //colocar bola no centro
+                }
+            }   
+            
+            //verifica se o jogador 1 fez ponto
+            
+            if(posicaoBolaX > larguraCampo){
+                if(posicaoBolaY > posicaojogador2 && posicaoBolaY < posicaojogador2 + alturaRaquete){
                     //rebate bola
                     velocidadeBolaPosicaoX = -velocidadeBolaPosicaoX;
 
-                    var diferencaY = posicaoBolaY - (posicaoRaquete1 + alturaRaquete /2);
-                    velocidadeBolaPosicaoY = diferencaY * efeitoRaquete;
+                    var diferecaY = posicaoBolaY - (posicaojogador2 + alturaRaquete/ 2);
+                    velocidadeBolaPosicaoY = diferecaY - efeitoRaquete;
+                }else{
+                    //pontos jogador1
+                    pontuacaojogador1++;
+                    
+                    //colocar bola no centro
                 }
-            }else{
-                //ponto jogador2
-                 pontosJogador2++
             }
+            
+            console.log(pontuacaojogador1)
+            console.log(pontuacaojogador2)
+
 
             
             
-            console.log('tic-tac')
+            
 
            
             
