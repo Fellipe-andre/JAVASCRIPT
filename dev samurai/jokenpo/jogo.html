@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOKENPO</title>
+    <style>
+
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            cursor: default;
+        }
+        #principal{
+            
+            border-radius: 5px;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        #titulo{
+            text-align: center;
+        }
+
+        #placar{
+            
+            border-radius: 5px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            
+        }
+        #jogador, #computador{
+            position: relative;
+            flex-grow: 1;
+            border-radius: 5px;
+            padding: 20px;
+            height: 200px;
+            color: #ffffff;
+
+        }
+
+        #jogador-pontos, #computador-pontos{
+            font-size: 48px;
+            position: absolute;
+            top: 8px;
+             
+        
+        }
+        #jogador-pontos{
+            right: 20px;
+        }
+
+        
+
+        #jogador h2, #computador h2{
+            margin: 0;
+            padding: 0;
+        }
+
+        #jogador{
+            background-color: #ff7675;
+            
+            
+        }
+
+        #versus{
+            padding: 5px;
+            
+        }
+
+        #computador{
+            background-color: #3498db;
+            
+        }
+        #jogador>ul, #computador>ul{
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            
+            
+        }
+
+        #jogador>ul>li , #computador>ul>li{
+            display: inline;
+            padding: 15px;
+        }
+        #jogador #jogador-escolha a{
+            opacity: .2;
+        }
+
+        #jogador #jogador-escolha a:hover{
+            opacity: 1;
+        }
+
+        #jogador #jogador-escolha img, 
+        #computador #computador-escolha img{ 
+            margin: auto;
+            padding: auto;
+            max-width: 55px;
+            
+        }
+
+       
+
+        #mensagens{
+          
+        }
+    </style>
+</head>
+<body>
+    <div id="principal">
+        <h1 id="titulo">Pedra, Papel e Tesoura</h1>
+
+        <div id="placar">
+            <div id="jogador">
+                <h2 id="jogador-nome">Fellipe</h2>
+                <span id="jogador-pontos">0</span>
+                <ul id="jogador-escolha">
+                    <li><a id="jogador-escolha-1"><img src="fotos/pedra.png" alt="Pedra"></a></li>
+                    <li><a id="jogador-escolha-2"><img src="fotos/papel.png" alt="Papel"></a></li>
+                    <li><a id="jogador-escolha-3"><img src="fotos/tesoura.png" alt="tesoura"></a></li>
+                </ul>
+            </div>
+            
+            <div id="versus">VS</div>
+            
+            <div id="computador">
+                <h2 >Computador</h2>
+                <span id="jogador-pontos">0</span>
+                <ul id="computador-escolha">
+                    <li><a id="computador-escolha-1"><img src="fotos/pedra.png" alt="Pedra"></a></li>
+                    <li><a id="computador-escolha-2"><img src="fotos/papel.png" alt="Papel"></a></li>
+                    <li><a id="computador-escolha-3"><img src="fotos/tesoura.png" alt="tesoura"></a></li>
+                </ul>
+            </div>
+        </div>
+       
+        <div id="mensagens">
+            mensagens
+        </div>
+    </div>
+
+</body>
+</html>
