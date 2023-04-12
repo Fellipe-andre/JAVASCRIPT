@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular</title>
+</head>
+<body>
+    <div id="calcular"></div>
+
+    <script>
+        x = Number(prompt('Esolha o primeiro número:'));
+        y = Number(prompt('Esolha o segundo número:'));
+        operação = Number(prompt('Escolha uma operação a calcular \n 1 para somar\n 2 para subitrair\n 3 para multiplicar\n 4 para dividir ')); 
+                    
+        var soma = function(x,y){
+            return x + y;
+        }  
+
+        var sub = function(x,y){
+            return x - y;
+        }  
+
+        var mult = function(x,y){
+            return x * y;
+        }  
+
+        var div = function(x,y){
+            return x / y;
+        }  
+        
+        var calculadora = function(x,y,operacao){
+            return operacao(x,y);
+        }
+        if(operação==1){
+            resultado = calculadora(x,y,soma);
+        }else if(operação==2){
+            resultado = calculadora(x,y,sub);
+        }else if(operação==3){
+            resultado = calculadora(x,y,mult); 
+        }else if(operação==4){
+            resultado = calculadora(x,y,div); 
+        }
+        document.getElementById('calcular').innerHTML = resultado
+    </script>
+</body>
+</html>

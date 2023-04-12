@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mensagem">
+        <h1>A mensagem aparecerá aqui!</h1>
+    </div>
+
+    <script>
+      
+        function potencia(base,expoente){
+            if(expoente == undefined){
+                expoente = 2 
+            }
+            var resultado = 1;
+            for(var cont = 0; cont < expoente; cont++){
+                resultado *= base; 
+            }
+            return resultado;
+        }
+        console.log(potencia(2));
+        console.log(potencia(2,4));
+        document.getElementById('mensagem').innerHTML = mensagem
+        
+
+        
+        </script>
+</body>
+</html>

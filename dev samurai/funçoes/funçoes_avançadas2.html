@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mensagem">
+        <h1>A mensagem aparecerá aqui!</h1>
+    </div>
+
+    <script>
+      
+        var ola = function(quem){
+            if(quem == undefined){
+                mensagem = 'Olá Tudo bem?'    
+            }else{
+            mensagem = `Olá Tudo bem com você ${quem}?`;
+            }
+        }
+        ola('Fellipe');
+        document.getElementById('mensagem').innerHTML = mensagem
+        
+
+        
+        </script>
+</body>
+</html>

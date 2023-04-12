@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desafio 4</title>
+</head>
+<body>
+    <script>
+        var continuar;
+        var operação;
+        var resultado;
+        
+        while(continuar != false){
+            n1 = Number(prompt('Digite o primeiro número:'));
+            n2 = Number(prompt('Digite o segundo número:'));
+            operação = prompt('Digite a operação que deseja:\n + =  mais\n - =  menos\n * =  multiplicação\n / =  divisao');
+            
+            function soma(x,y){
+                return x+y;
+            };
+            function subtração(x,y){
+                return x-y;
+            };
+            function multiplicação(x,y){
+                return x*y;
+            };
+            function divisão(x,y){
+                return x/y;
+            };
+            
+            if(operação == '+'){
+                resultado = soma(n1,n2);
+                alert(`o resultado de ${n1} ${operação} ${n2} = ${resultado}`);
+                
+            }else if(operação == '-'){
+                resultado = subtração(n1,n2);
+                alert(`o resultado de ${n1} ${operação} ${n2} = ${resultado}`);
+            }
+            else if(operação == '*'){
+                resultado = multiplicação(n1,n2);
+                alert(`o resultado de ${n1} ${operação} ${n2} = ${resultado}`);
+            }else if(operação == '/'){
+                resultado = divisão(n1,n2);
+                alert(`o resultado de ${n1} ${operação} ${n2} = ${resultado}`);
+            }else{
+                alert(`Você digitou errado. TENTE NOVAMENTE!`)
+            }
+                       
+            
+            continuar = confirm('deseja continuar');
+        }
+        
+    </script>
+</body>
+</html>

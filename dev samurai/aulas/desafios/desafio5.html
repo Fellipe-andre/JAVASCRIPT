@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <p>Ultilizando o "for" crie um programa que calcule a função log "Math.log(x)" para cada valor do contador; </p>
+        <p>Este programa deve solicitar os valores iniciais, finais, e de ingremento, e tambem esscrever na tela o resultado.</p>
+    </section>
+
+    <h1 id="resultado">resultado</h1>
+    <script>
+        var nome = prompt('Olá qual seu nome: ');
+        var inicial = Number(prompt('Valor inicial:'));
+        var contador = Number(prompt('Valor final:'));
+        var incremento = Number(prompt('Valor de incremento:'));
+        
+        mensagem =  `Olá ${nome}, segue o resultado abaixo:`
+        document.getElementById('resultado').innerHTML = mensagem  
+        
+        for(x = inicial; x <= contador; x += incremento ){
+            resultado =  Math.log(x);
+            document.write("<p>" + resultado + "</p>");
+            }
+        
+        
+          
+        
+
+    </script>
+</body>
+</html>

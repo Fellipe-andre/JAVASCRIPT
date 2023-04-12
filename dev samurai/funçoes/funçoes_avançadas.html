@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="mensagem">
+        <h1>A mensagem aparecerá aqui!</h1>
+    </div>
+
+    <script>
+        var pais = prompt('Qual País deseja ver o lançamento');
+        
+        function lançarMissil(){
+        if(pais == 'russia'){
+                mensagem = "Usar telefone vermelho!";
+            }else{
+                mensagem = 'Lançando missíl em 3..2..1';
+            } 
+         
+        document.getElementById('mensagem').innerHTML = mensagem
+        }
+
+        lançarMissil();
+        </script>
+</body>
+</html>
