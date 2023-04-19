@@ -87,8 +87,18 @@ nomes = ['deise','Fellipe', 'Thiago', 'clicia', 'tania', 'Vitor'];
 
 nomes.shift('deise');
 
-nomes = [Fellipe', 'Thiago', 'clicia', 'tania', 'Vitor'];
+nomes = ['Fellipe', 'Thiago', 'clicia', 'tania', 'Vitor'];
   indices   0        1         2         3        4        
+
+========================================//========================================
+
+O comando .indexOf('Fellipe') busca e retorna o index que o nome "Fellipe" está!
+
+nomes = ['Fellipe', 'Thiago', 'clicia', 'tania', 'Vitor'];
+  indices   0        1         2         3        4 
+
+nomes.indexOf('Fellipe');
+index =  0
 
 ========================================//========================================
 
@@ -103,8 +113,6 @@ console.log(nomes.length);
 7
 
 no caso 7 sao todos os indices, lembrando que começa de 0 mas o 0 ja conta como um indice.
-
-
 
 ========================================//========================================
 
