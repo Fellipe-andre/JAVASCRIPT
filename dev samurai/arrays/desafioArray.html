@@ -31,25 +31,39 @@
   </div>
   <script>
     
+    var resposta = true;
     var listaConvidados = [];
+    var contador = 0;
 
-    var nome = prompt("Digite o nome do convidado:");
-    var idade = prompt("Digite a idade do convidado:");
-    var endereço = prompt("Digite o endereço do convidado:");
+    function adiconarConvidado(){
+        var nome = prompt("Digite o nome do convidado:");
+        var idade = prompt("Digite a idade do convidado:");
+        var endereço = prompt("Digite o endereço do convidado:");
 
-    var convidado = {
-        nome: nome,
-        idade: idade,
-        endereço: endereço
-    };
-    listaConvidados.push(convidado);
-    var mensagem = 
-    `Nome: ${convidado.nome}
-    \nIdade: ${convidado.idade}
-    \nEndereço: ${convidado.endereço}`;
+        var convidado = {
+         nome: nome,
+         idade: idade,
+         endereço: endereço
+        };
+
+        listaConvidados.push(convidado);
+    }
+    
+    while (resposta) {
+        adiconarConvidado();
+        contador++;
+        resposta = confirm("Deseja adiconar mais um convidado?");
+        
+    }
+    
+    
+    
+     
+    console.log(contador);
+   
     
 
-    console.log(mensagem);
+    
 
     
 
