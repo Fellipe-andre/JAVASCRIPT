@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de convidado</title>
+</head>
+<body>
+
+    <h1><p>
+        1 Faça um programa que leia os dados dos convidados da festa.<br>
+        2 Separe por sexo.<br>
+        3 Exclua os menores de 18.<br>
+        4 Coloque em ordem alfabetica.
+    </p>
+    </h1>
+
+    <h2 id="mensagem">
+        <p>
+            lista de convidado
+        </p> 
+    </h2>
+    <script>
+            
+    var resposta = true;
+    var listaConvidados = [];
+    var contador = 0;
+    var mensagem = document.querySelector('#mensagem');
+    
+    function adiconarConvidado(){
+        var nome = prompt("Digite o nome do convidado:");
+        var idade = Number(prompt("Digite a idade do convidado:"));
+        var sexo = Number(prompt("[1] para Feminino: \n[2] para masculino: "));
+
+        var convidado = {
+         nome: nome,
+         idade: idade,
+         sexo: sexo
+        };
+
+        listaConvidados.push(convidado);
+    }
+    
+    while (resposta) {
+        adiconarConvidado();
+        contador++;
+        resposta = confirm("Deseja adiconar mais um convidado?");
+        
+    }
+    
+    console.log(listaConvidados);
+    
+    </script>
+</body>
+</html>
